@@ -104,55 +104,54 @@ learning_map: # ignore the
   0 : 0     # "unlabeled"
   1 : 1     # "outlier" mapped to "unlabeled" --------------------------mapped
   2: 2     # "bicycle"
-  3: 3     # "bus" mapped to "other-vehicle" --------------------------mapped
-  4: 4     # "motorcycle"
-  5: 5     # "on-rails" mapped to "other-vehicle" ---------------------mapped
-  6: 6     # "truck"
-  7: 7     # "other-vehicle"
-  8: 8     # "person"
-  9: 9     # "bicyclist"
-  10: 10     # "motorcyclist"
-  11: 11     # "road"
-  12: 12    # "parking"
-  13: 13    # "sidewalk"
-  14: 14    # "other-ground"
-  15: 15    # "building"
-  16: 16    # "fence"
-  17: 17     # "other-structure" mapped to "unlabeled" ------------------mapped
-  18: 18     # "lane-marking" to "road" ---------------------------------mapped
-  19: 19    # "vegetation"
-  20: 20    # "trunk"
-  21: 21    # "terrain"
-  22: 22    # "pole"
-  23: 23    # "traffic-sign"
-  24: 24     # "other-object" to "unlabeled" ----------------------------mapped
+  3: 0     # "bus" mapped to "other-vehicle" --------------------------mapped
+  4: 3     # "motorcycle"
+  5: 4     # "on-rails" mapped to "other-vehicle" ---------------------mapped
+  6: 5     # "truck"
+  7: 6     # "other-vehicle"
+  8: 7     # "person"
+  9: 8     # "bicyclist"
+  10: 9     # "motorcyclist"
+  11: 10     # "road"
+  12: 11    # "parking"
+  13: 12    # "sidewalk"
+  14: 13    # "other-ground"
+  15: 14    # "building"
+  16: 15    # "fence"
+  17: 16     # "other-structure" mapped to "unlabeled" ------------------mapped
+  18: 17     # "lane-marking" to "road" ---------------------------------mapped
+  19: 18    # "vegetation"
+  20: 19    # "trunk"
+  21: 20    # "terrain"
+  22: 21    # "pole"
+  23: 0    # "traffic-sign"
+  24: 0     # "other-object" to "unlabeled" ----------------------------mapped
 
 learning_map_inv: # inverse of previous map
   0 : 0     # "unlabeled"
   1 : 1     # "outlier" mapped to "unlabeled" --------------------------mapped
   2: 2     # "bicycle"
-  3: 3     # "bus" mapped to "other-vehicle" --------------------------mapped
-  4: 4     # "motorcycle"
-  5: 5     # "on-rails" mapped to "other-vehicle" ---------------------mapped
-  6: 6     # "truck"
-  7: 7     # "other-vehicle"
-  8: 8     # "person"
-  9: 9     # "bicyclist"
-  10: 10     # "motorcyclist"
-  11: 11     # "road"
-  12: 12    # "parking"
-  13: 13    # "sidewalk"
-  14: 14    # "other-ground"
-  15: 15    # "building"
-  16: 16    # "fence"
-  17: 17     # "other-structure" mapped to "unlabeled" ------------------mapped
-  18: 18     # "lane-marking" to "road" ---------------------------------mapped
-  19: 19    # "vegetation"
-  20: 20    # "trunk"
-  21: 21    # "terrain"
-  22: 22    # "pole"
-  23: 23    # "traffic-sign"
-  24: 24     # "other-object" to "unlabeled" ----------------------------mapped
+  3: 4     # "bus" mapped to "other-vehicle" --------------------------mapped
+  4: 5     # "motorcycle"
+  5: 6     # "on-rails" mapped to "other-vehicle" ---------------------mapped
+  6: 7     # "truck"
+  7: 8     # "other-vehicle"
+  8: 9     # "person"
+  9: 10     # "bicyclist"
+  10: 11     # "motorcyclist"
+  11: 12     # "road"
+  12: 13    # "parking"
+  13: 14    # "sidewalk"
+  14: 15    # "other-ground"
+  15: 16    # "building"
+  16: 17    # "fence"
+  17: 18     # "other-structure" mapped to "unlabeled" ------------------mapped
+  18: 19     # "lane-marking" to "road" ---------------------------------mapped
+  19: 20    # "vegetation"
+  20: 21    # "trunk"
+  21: 22    # "terrain"
+  # 23: 23    # "traffic-sign"
+  # 24: 24     # "other-object" to "unlabeled" ----------------------------mapped
 learning_ignore: # Ignore classes
   0: True      # "unlabeled", and others ignored
   1: False     # "car"
@@ -176,9 +175,8 @@ learning_ignore: # Ignore classes
   19: True    # "traffic-sign"
   20: True    # "vegetation"
   21: False    # "trunk"
-  22: False    # "terrain"
-  23: True    # "pole"
-  24: True    # "traffic-sign"
+  # 23: True    # "pole"
+  # 24: True    # "traffic-sign"
 split: # sequence numbers
   train:
     - 0

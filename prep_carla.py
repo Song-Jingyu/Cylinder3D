@@ -1,7 +1,7 @@
 import os
 import yaml
 
-raw_dataset_dir = '/media/sdb1/shared_data'
+raw_dataset_dir = '/media/neofelis/c6edf27e-8489-4fb6-af1c-2530dc1ff67b/jy/carla_data'
 dataset_dir = './carla_data'
 sequence_dir = os.path.join(dataset_dir, 'sequences')
 sequence_ref_dict = {}
