@@ -4,3 +4,5 @@
 carla_data/*
 model_load_dir/*
 model_save_dir/*
+__pycache__/
+*.py[cod]
