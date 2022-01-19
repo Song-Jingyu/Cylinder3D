@@ -14,7 +14,7 @@ labels:
   11: "wall"
   12: "traffic-sign"
   13: "sky"
-  14: "ground"
+  14: "other-ground"
   15: "bridge"
   16: "rail-track"
   17: "guard-rail"
@@ -26,20 +26,21 @@ labels:
   23: "extra-1"
   24: "extra-2"
 
-color_map: # bgr
+
+color_map: # bgr sjy TODO
   0 : [0, 0, 0]
   1 : [0, 0, 255]
-  10: [245, 150, 100]
-  11: [245, 230, 100]
-  13: [250, 80, 100]
-  15: [150, 60, 30]
-  16: [255, 0, 0]
-  18: [180, 30, 80]
-  20: [255, 0, 0]
-  30: [30, 30, 255]
-  31: [200, 40, 255]
-  32: [90, 30, 150]
-  40: [255, 0, 255]
+  2: [245, 150, 100]
+  3: [245, 230, 100]
+  4: [250, 80, 100]
+  5: [150, 60, 30]
+  6: [255, 0, 0]
+  7: [180, 30, 80]
+  8: [255, 0, 0]
+  9: [30, 30, 255]
+  10: [200, 40, 255]
+  11: [90, 30, 150]
+  12: [255, 0, 255]
   44: [255, 150, 255]
   48: [75, 0, 75]
   49: [75, 0, 175]
@@ -63,7 +64,7 @@ color_map: # bgr
   259: [255, 0, 0]
 
 # we should be able to not modify this
-content: # as a ratio with the total number of points
+content: # as a ratio with the total number of points sjy TODO
   0: 0.018889854628292943
   1: 0.0002937197336781505
   10: 0.040818519255974316
@@ -100,58 +101,85 @@ content: # as a ratio with the total number of points
   259: 4.3840131989471124e-05
 # classes that are indistinguishable from single scan or inconsistent in
 # ground truth are mapped to their closest equivalent
+
+# Validation per class iou: 
+# building : 14.41%
+# fences : 7.74%
+# pedestrian : 81.88%
+# pole : 82.29%
+# road-lines : 0.05%
+# road : 95.13%
+# sidewalk : 17.87%
+# vegetation : 72.55%
+# vehicle : 99.63%
+# wall : 33.85%
+# traffic-sign : 41.90%
+# sky : 0.00%
+# ground : 15.96%
+# bridge : 0.00%
+# rail-track : 0.00%
+# guard-rail : 63.17%
+# traffic-light : 0.00%
+# static : 0.27%
+# dynamic : 4.21%
+# water : 0.00%
+# terrain : 3.29%
+# Current val miou is 30.199 while the best val miou is 31.677
+# Current val loss is 2.503
+
 learning_map: # ignore the 
   0 : 0     # "unlabeled"
-  1 : 1     # "outlier" mapped to "unlabeled" --------------------------mapped
-  2: 2     # "bicycle"
-  3: 0     # "bus" mapped to "other-vehicle" --------------------------mapped
-  4: 3     # "motorcycle"
-  5: 4     # "on-rails" mapped to "other-vehicle" ---------------------mapped
-  6: 5     # "truck"
-  7: 6     # "other-vehicle"
-  8: 7     # "person"
-  9: 8     # "bicyclist"
-  10: 9     # "motorcyclist"
-  11: 10     # "road"
-  12: 11    # "parking"
-  13: 12    # "sidewalk"
-  14: 13    # "other-ground"
-  15: 14    # "building"
-  16: 15    # "fence"
-  17: 16     # "other-structure" mapped to "unlabeled" ------------------mapped
-  18: 17     # "lane-marking" to "road" ---------------------------------mapped
-  19: 18    # "vegetation"
-  20: 19    # "trunk"
-  21: 20    # "terrain"
-  22: 21    # "pole"
-  23: 0    # "traffic-sign"
-  24: 0     # "other-object" to "unlabeled" ----------------------------mapped
+  1 : 1     # "building"
+  2 : 2     # "fence"
+  3 : 0     # "other" mapped to "unlabeled" --------------------------mapped
+  4 : 3     # "pedestrian"
+  5 : 4     # "pole"
+  6 : 5     # "roadline" mapped to "road" --------------------------mapped
+  7 : 5     # "road"
+  8 : 6     # "sidewalk"
+  9 : 7     # "vegetation"
+  10: 8     # "vehicles"
+  11: 0     # "wall" mapped to "unlabeled" --------------------------mapped
+  12: 9    # "traffic-sign"
+  13: 0    # "sky" mapped to "unlabeled" --------------------------mapped
+  14: 0    # "other-ground" mapped to "unlabeled" --------------------------mapped
+  15: 0    # "bridge" mapped to "unlabeled" --------------------------mapped
+  16: 0    # "rail-track" mapped to "unlabeled" --------------------------mapped
+  17: 9     # "guard-rail"
+  18: 0     # "traffic-light" mapped to "unlabeled" --------------------------mapped
+  19: 0    # "static" mapped to "unlabeled" --------------------------mapped
+  20: 0    # "dynamic" mapped to "unlabeled" --------------------------mapped
+  21: 0    # "water" mapped to "unlabeled" --------------------------mapped
+  22: 10    # "terrain"
+  23: 0    # "extra-1" mapped to "unlabeled" --------------------------mapped
+  24: 0     # "extra-2" mapped to "unlabeled" --------------------------mapped
 
 learning_map_inv: # inverse of previous map
   0 : 0     # "unlabeled"
-  1 : 1     # "outlier" mapped to "unlabeled" --------------------------mapped
-  2: 2     # "bicycle"
-  3: 4     # "bus" mapped to "other-vehicle" --------------------------mapped
-  4: 5     # "motorcycle"
-  5: 6     # "on-rails" mapped to "other-vehicle" ---------------------mapped
-  6: 7     # "truck"
-  7: 8     # "other-vehicle"
-  8: 9     # "person"
-  9: 10     # "bicyclist"
-  10: 11     # "motorcyclist"
-  11: 12     # "road"
-  12: 13    # "parking"
-  13: 14    # "sidewalk"
-  14: 15    # "other-ground"
-  15: 16    # "building"
-  16: 17    # "fence"
-  17: 18     # "other-structure" mapped to "unlabeled" ------------------mapped
-  18: 19     # "lane-marking" to "road" ---------------------------------mapped
-  19: 20    # "vegetation"
-  20: 21    # "trunk"
-  21: 22    # "terrain"
+  1 : 1     # "building"
+  2: 2     # "fence"
+  3: 4     # "pedestrian"
+  4: 5     # "pole"
+  5: 7     # "road"
+  6: 8     # "sidewalk"
+  7: 9     # "vegetation"
+  8: 10     # "vehicles"
+  9: 17     # "traffic-sign"
+  10: 22     # "terrain"
+  # 11: 12     # "road"
+  # 12: 13    # "parking"
+  # 13: 14    # "sidewalk"
+  # 14: 15    # "other-ground"
+  # 15: 16    # "building"
+  # 16: 17    # "fence"
+  # 17: 18     # "other-structure" mapped to "unlabeled" ------------------mapped
+  # 18: 19     # "lane-marking" to "road" ---------------------------------mapped
+  # 19: 20    # "vegetation"
+  # 20: 21    # "trunk"
+  # 21: 22    # "terrain"
   # 23: 23    # "traffic-sign"
   # 24: 24     # "other-object" to "unlabeled" ----------------------------mapped
+
 learning_ignore: # Ignore classes
   0: True      # "unlabeled", and others ignored
   1: False     # "car"
@@ -164,19 +192,20 @@ learning_ignore: # Ignore classes
   8: False     # "motorcyclist"
   9: False     # "road"
   10: False    # "parking"
-  11: False    # "sidewalk"
-  12: False    # "other-ground"
-  13: False    # "building"
-  14: False    # "fence"
-  15: False    # "vegetation"
-  16: False    # "trunk"
-  17: False    # "terrain"
-  18: False    # "pole"
-  19: True    # "traffic-sign"
-  20: True    # "vegetation"
-  21: False    # "trunk"
+  # 11: False    # "sidewalk"
+  # 12: False    # "other-ground"
+  # 13: False    # "building"
+  # 14: False    # "fence"
+  # 15: False    # "vegetation"
+  # 16: False    # "trunk"
+  # 17: False    # "terrain"
+  # 18: True    # "pole"
+  # 19: True    # "traffic-sign"
+  # 20: False    # "vegetation"
+  # 21: False    # "trunk"
   # 23: True    # "pole"
   # 24: True    # "traffic-sign"
+
 split: # sequence numbers
   train:
     - 0
@@ -187,16 +216,23 @@ split: # sequence numbers
     - 5
     - 6
     - 7
+    - 8
     - 9
     - 10
     - 11
     - 12
     - 13
     - 14
-
-  valid:
     - 15
     - 16
-  test:
     - 17
+
+
+  valid:
     - 18
+    - 19
+    - 20
+  test:
+    - 21
+    - 22
+    - 23

@@ -2,3 +2,5 @@
 .idea
 .DS_Store
 carla_data/*
+model_load_dir/*
+model_save_dir/*
